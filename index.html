@@ -1,0 +1,60 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <style>
+         h2{
+             text-align:center;
+             padding-top: 30px;
+             padding-right: 70px;
+             
+         }
+     </style>
+ </head>
+ <body>
+     <h2>Tik Tok Toe</h2>
+    
+    <script>
+        var currentPlayer  = "X";
+        var board=document.createElement('div');
+        board.style.height="300px";
+        board.style.width="300px";
+        board.style.display="flex";
+        board.style.flexDirection="row";
+        board.style.flexWrap="wrap";
+        board.style.margin="auto";
+        board.style.marginTop="50px";
+        
+        for(let index=1; index<=9; index++) {
+            var box = document.createElement('div');
+            box.style.height="50px";
+            box.style.width="25%";
+            box.setAttribute("id", index);
+            box.style.backgroundColor="#ffb6c1";
+            box.style.border="1px solid white";
+            box.style.paddingTop="50px";
+            box.style.textAlign="center";
+            
+            
+            box.addEventListener('click', function(){
+                if(this.innerText.length == 0){
+                    if(currentPlayer == "X"){
+                        this.innerText = currentPlayer;
+                        currentPlayer ="O";
+                    }else{
+                        this.innerText = currentPlayer;
+                        currentPlayer = "X";
+                    }
+                }
+            })
+            
+            board.appendChild(box);
+        }
+
+        document.body.appendChild(board)
+    </script>
+ </body>
+ </html>
